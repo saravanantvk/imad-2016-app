@@ -4,20 +4,35 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-
-var articleOne = {
-  title:'Home Page',
-  heading:'Home Page of Wep apps',
-  content:`<div class='center'>
-            <img src='/ui/madi.png' class='img-medium'/>
-        </div>
-        <br>
-        <div class='center text-big bold'>
-            Hi! This is my first webpage
-        </div>
-        <script type="text/javascript" src="/ui/main.js">
-        </script>
-        `
+var articles = {
+                     "article-one" : {
+                      title:'Home Page',
+                      heading:'Home Page of Wep apps',
+                      content:`<div class='center'>
+                                <img src='/ui/madi.png' class='img-medium'/>
+                            </div>
+                            <br>
+                            <div class='center text-big bold'>
+                                Hi! This is my first webpage
+                            </div>
+                            <script type="text/javascript" src="/ui/main.js">
+                            </script>
+                            `
+                    },
+                     "article-two" : {
+                      title:'Home Page',
+                      heading:'Home Page of Wep apps',
+                      content:`<div class='center'>
+                                <img src='/ui/madi.png' class='img-medium'/>
+                            </div>
+                            <br>
+                            <div class='center text-big bold'>
+                                Hi! This is my first webpage
+                            </div>
+                            <script type="text/javascript" src="/ui/main.js">
+                            </script>
+                            `
+                    }
 };
 function createTemplate(data)
 {
@@ -37,8 +52,10 @@ var htmlTemplate = `
 `;
   return htmlTemplate;  
 }
-app.get('/', function (req, res) {
-  res.send(createTemplate(articleOne));
+app.get('/:pageName', function (req, res) {
+    
+    var pageName = req.param.pageName;
+  res.send(createTemplate(pageName));
 });
 
 app.get('/ui/style.css', function (req, res) {
