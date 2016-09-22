@@ -5,8 +5,40 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articleOne = {
+  title:'Home Page',
+  heading:'Home Page of Wep apps',
+  content:`<div class='center'>
+            <img src='/ui/madi.png' class='img-medium'/>
+        </div>
+        <br>
+        <div class='center text-big bold'>
+            Hi! This is my first webpage
+        </div>
+        <script type="text/javascript" src="/ui/main.js">
+        </script>
+        `
+};
+function createTemplate(data)
+{
+    var title = data.title;
+    var heading = data.heading;
+    var content =  data.content;
+var htmlTemplate = `
+<html>
+    <head>
+        <title>${title}</title>
+        <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        ${content}
+    </body>
+</html>
+`;
+  return htmlTemplate;  
+}
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+  res.send(createTemplate(articleOne));
 });
 
 app.get('/ui/style.css', function (req, res) {
