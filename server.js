@@ -55,7 +55,7 @@ var htmlTemplate = `
 app.get('/:pageName', function (req, res) {
     
     var pageName = req.param.pageName;
-  res.send(createTemplate(pageName));
+  res.send(createTemplate(articles[pageName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
