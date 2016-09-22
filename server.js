@@ -6,8 +6,8 @@ var app = express();
 app.use(morgan('combined'));
 var articles = {
                      "article-one" : {
-                      title:'Home Page',
-                      heading:'Home Page of Wep apps',
+                      title:"Home Page",
+                      heading:"Home Page of Wep apps",
                       content:`<div class='center'>
                                 <img src='/ui/madi.png' class='img-medium'/>
                             </div>
