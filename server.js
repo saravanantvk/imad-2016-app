@@ -54,7 +54,7 @@ var htmlTemplate = `
 }
 app.get('/:pageName', function (req, res) {
     
-    var pageName = req.param.pageName;
+    var pageName = req.params.pageName;
     console.log(pageName);
   res.send(createTemplate(articles[pageName]));
 });
