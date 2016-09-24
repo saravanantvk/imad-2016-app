@@ -9,7 +9,7 @@ var articles = {
                       title:"Home Page",
                       heading:"Home Page of Wep apps",
                       content:`<div class='center'>
-                                <img src='/ui/madi.png' class='img-medium'/>
+                                
                             </div>
                             <br>
                             <div class='center text-big bold'>
