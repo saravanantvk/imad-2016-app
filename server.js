@@ -53,8 +53,7 @@ var htmlTemplate = `
   return htmlTemplate;  
 }
 app.get('/', function (req, res) {
-    
-  res.sendFile(index.html);
+  res.sendFile(path.join(__dirname + '/index.html'));  
 });
 app.get('/:pageName', function (req, res) {
     
