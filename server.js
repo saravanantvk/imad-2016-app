@@ -54,7 +54,7 @@ var htmlTemplate = `
 }
 app.get('/', function (req, res) {
     
-  res.send('index.html');
+  res.sendfile('index.html');
 });
 app.get('/:pageName', function (req, res) {
     
